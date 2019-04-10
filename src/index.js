@@ -260,10 +260,14 @@ export default class RNPickerSelect extends PureComponent {
     }
 
     renderDoneBar() {
-        const { doneText, hideDoneBar, onUpArrow, onDownArrow, onDonePress, style } = this.props;
+        const { doneText, hideDoneBar, onUpArrow, onDownArrow, onDonePress, style, renderDoneBar } = this.props;
 
         if (hideDoneBar) {
             return null;
+        }
+
+        if (renderDoneBar) {
+          return renderDoneBar({ doneText, hideDoneBar, onUpArrow, onDownArrow, onDonePress, style });
         }
 
         return (
